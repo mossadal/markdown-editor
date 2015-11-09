@@ -5,6 +5,7 @@ var files;
 $(window).load(function () {
     $('.md-button-bold').click(function() {
         s = $('textarea.md-preview-source').selection();
+        console.log('selection = ' + s);
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['bold'] });
 
         $('textarea.md-preview-source')
@@ -15,6 +16,7 @@ $(window).load(function () {
 
     $('.md-button-italic').click(function() {
         s = $('textarea.md-preview-source').selection();
+        console.log('selection = ' + s);
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['italic'] });
 
         $('textarea.md-preview-source')
@@ -25,6 +27,8 @@ $(window).load(function () {
 
     $('.md-button-blockquote').click(function() {
         s = $('textarea.md-preview-source').selection();
+        console.log('selection = ' + s);
+
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['quote'] });
 
         $('textarea.md-preview-source')
@@ -34,6 +38,8 @@ $(window).load(function () {
 
     $('.md-button-url').click(function() {
         s = $('textarea.md-preview-source').selection();
+        console.log('selection = ' + s);
+
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['url'] });
 
         $('textarea.md-preview-source')
@@ -44,6 +50,8 @@ $(window).load(function () {
 
     $('.md-button-img').click(function() {
         s = $('textarea.md-preview-source').selection();
+        console.log('selection = ' + s);
+
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['img'] });
 
         $('textarea.md-preview-source')
