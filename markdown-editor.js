@@ -4,8 +4,6 @@ var files;
 
 $(window).load(function () {
     $('.md-button-bold').click(function() {
-        alert('bolding ' + JSON.stringify(this));
-
         s = $('textarea.md-preview-source').selection();
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['bold'] });
 
