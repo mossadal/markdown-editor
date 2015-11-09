@@ -12,10 +12,10 @@ $(window).load(function () {
         if (s.length == 0) s.text = replace_text['bold'];
 
         replacement = '**' + s.text + '**';
-        $('textarea.md-preview-source')
-            .textrange('replace', replacement)
-            .textrange('set', s.start+2, replacement.length-4 )
-            .trigger('input');
+
+        textarea.textrange('replace', replacement)
+                .textrange('set', s.start+2, replacement.length-4 )
+                .trigger('input');
 
     });
 
@@ -27,10 +27,9 @@ $(window).load(function () {
         if (s.length == 0) s.text = replace_text['italic'];
 
         replacement = '*' + s.text + '*';
-        $('textarea.md-preview-source')
-            .textrange('replace', replacement)
-            .textrange('set', s.start+1, replacement.length-2 )
-            .trigger('input');
+        textarea.textrange('replace', replacement)
+                .textrange('set', s.start+1, replacement.length-2 )
+                .trigger('input');
     });
 
     $('.md-button-blockquote').click(function() {
@@ -41,10 +40,9 @@ $(window).load(function () {
         if (s.length == 0) s.text = replace_text['quote'];
 
         replacement = '\n> ' + s.text;
-        $('textarea.md-preview-source')
-            .textrange('replace', replacement)
-            .textrange('set', s.start+3, replacement.length-3 )
-            .trigger('input');
+        textarea.textrange('replace', replacement)
+                .textrange('set', s.start+3, replacement.length-3 )
+                .trigger('input');
     });
 
     $('.md-button-url').click(function() {
@@ -55,10 +53,9 @@ $(window).load(function () {
         if (s.length == 0) s.text = replace_text['url'];
 
         replacement = '[' + replace_text['img_description'] + '](' + s.text + ')';
-        $('textarea.md-preview-source')
-            .textrange('replace', replacement)
-            .textrange('set', s.start+1, replace_text['img_description'].length )
-            .trigger('input');
+        $textarea.textrange('replace', replacement)
+                .textrange('set', s.start+1, replace_text['img_description'].length )
+                .trigger('input');
 
     });
 
@@ -70,10 +67,9 @@ $(window).load(function () {
         if (s.length == 0) s.text = replace_text['url'];
 
         replacement = '![' + replace_text['img_description'] + '](' + s.text + ')';
-        $('textarea.md-preview-source')
-            .textrange('replace', replacement)
-            .textrange('set', s.start+2, replace_text['img_description'].length )
-            .trigger('input');
+        textarea.textrange('replace', replacement)
+                .textrange('set', s.start+2, replace_text['img_description'].length )
+                .trigger('input');
     });
 
     form_html = [
