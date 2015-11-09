@@ -24,6 +24,18 @@ return array(
 	'button_quote' => 'Citat',
 	'button_upload' => 'Ladda upp bild',
 	'button_help' => 'Kortfattad Markdown-hjälp',
+	'cancel' => 'Avbryt',
+
+	/* Editor inserted text */
+
+	'bold' => 'fetstil',
+	'italic' => 'kursiv text',
+	'quote' => 'citat',
+	'url' => 'url',
+	'img' => 'url',
+	'img_description' => 'beskrivning',
+	'upload' => 'Välj bild att ladda upp:',
+	'upload_header' => 'Ladda upp bild',
 
 	/* Markdown help page */
 
