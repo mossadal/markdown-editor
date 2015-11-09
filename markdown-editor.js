@@ -6,6 +6,7 @@ $(window).load(function () {
     $('.md-button-bold').click(function() {
         s = $('textarea.md-preview-source').textrange();
 
+        console.log('textarea content = ' + $('textarea.md-preview-source').val());
         console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['bold'];
 
