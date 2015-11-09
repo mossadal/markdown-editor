@@ -4,7 +4,8 @@ var files;
 
 $(window).load(function () {
     $('.md-button-bold').click(function() {
-        s = $('textarea.md-preview-source').textrange();
+        var textarea = $(this).parent().nextAll('.md-preview-source').first();
+        s = textarea.textrange();
 
         console.log('textarea content = ' + $('textarea.md-preview-source').val());
         console.log('selection = ' + JSON.stringify(s));
@@ -19,7 +20,8 @@ $(window).load(function () {
     });
 
     $('.md-button-italic').click(function() {
-        s = $('textarea.md-preview-source').textrange();
+        var textarea = $(this).parent().nextAll('.md-preview-source').first();
+        s = textarea.textrange();
 
         console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['italic'];
@@ -32,7 +34,8 @@ $(window).load(function () {
     });
 
     $('.md-button-blockquote').click(function() {
-        s = $('textarea.md-preview-source').textrange();
+        var textarea = $(this).parent().nextAll('.md-preview-source').first();
+        s = textarea.textrange();
 
         console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['quote'];
@@ -45,7 +48,8 @@ $(window).load(function () {
     });
 
     $('.md-button-url').click(function() {
-        s = $('textarea.md-preview-source').textrange();
+        var textarea = $(this).parent().nextAll('.md-preview-source').first();
+        s = textarea.textrange();
 
         console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['url'];
@@ -59,7 +63,8 @@ $(window).load(function () {
     });
 
     $('.md-button-img').click(function() {
-        s = $('textarea.md-preview-source').textrange();
+        var textarea = $(this).parent().nextAll('.md-preview-source').first();
+        s = textarea.textrange();
 
         console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['url'];
