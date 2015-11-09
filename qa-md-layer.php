@@ -18,7 +18,7 @@ class qa_html_theme_layer extends qa_html_theme_base
 		$this->output_raw("</style>\n\n");
 		$this->output_raw('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">');
 		$this->output_raw('<link rel="stylesheet" href="'.QA_HTML_THEME_LAYER_URLTOROOT.'md.css">');
-		$this->output_raw('<script src="'.QA_HTML_THEME_LAYER_URLTOROOT.'jquery-selection.js"></script>');
+		$this->output_raw('<script src="'.QA_HTML_THEME_LAYER_URLTOROOT.'jquery-textrange.js"></script>');
 		$this->output_raw('<script src="'.QA_HTML_THEME_LAYER_URLTOROOT.'markdown-editor.js"></script>');
 
 

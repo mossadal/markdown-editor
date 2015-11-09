@@ -4,60 +4,64 @@ var files;
 
 $(window).load(function () {
     $('.md-button-bold').click(function() {
-        s = $('textarea.md-preview-source').selection();
-        console.log('selection = ' + s);
-        if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['bold'] });
+        s = $('textarea.md-preview-source').textrange();
 
+        // console.log('selection = ' + JSON.stringify(s));
+        if (s.length == 0) s.text = replace_text['bold'];
+
+        replacement = '**' + s.text + '**';
         $('textarea.md-preview-source')
-            .selection('insert', { text: '**', mode: 'before' })
-            .selection('insert', { text: '**', mode: 'after' })
-            .trigger('input');
+            .textrange('replace', replacement)
+            .textrange('set', s.start+2, replacement.length-4 );
     });
 
     $('.md-button-italic').click(function() {
-        s = $('textarea.md-preview-source').selection();
-        console.log('selection = ' + s);
-        if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['italic'] });
+        s = $('textarea.md-preview-source').textrange();
 
+        // console.log('selection = ' + JSON.stringify(s));
+        if (s.length == 0) s.text = replace_text['italic'];
+
+        replacement = '*' + s.text + '*';
         $('textarea.md-preview-source')
-            .selection('insert', { text: '*', mode: 'before' })
-            .selection('insert', { text: '*', mode: 'after' })
-            .trigger('input');
+            .textrange('replace', replacement)
+            .textrange('set', s.start+1, replacement.length-2 );
     });
 
     $('.md-button-blockquote').click(function() {
-        s = $('textarea.md-preview-source').selection();
-        console.log('selection = ' + s);
+        s = $('textarea.md-preview-source').textrange();
 
-        if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['quote'] });
+        // console.log('selection = ' + JSON.stringify(s));
+        if (s.length == 0) s.text = replace_text['quote'];
 
+        replacement = '\n> ' + s.text;
         $('textarea.md-preview-source')
-            .selection('insert', { text: '\n> ', mode: 'before' })
-            .trigger('input');
+            .textrange('replace', replacement)
+            .textrange('set', s.start+3, replacement.length-3 );
     });
 
     $('.md-button-url').click(function() {
-        s = $('textarea.md-preview-source').selection();
-        console.log('selection = ' + s);
+        s = $('textarea.md-preview-source').textrange();
 
-        if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['url'] });
+        // console.log('selection = ' + JSON.stringify(s));
+        if (s.length == 0) s.text = replace_text['url'];
 
+        replacement = '[' + replace_text['img_description'] + '](' + s.text + ')';
         $('textarea.md-preview-source')
-            .selection('insert', { text: '[beskrivning](', mode: 'before' })
-            .selection('insert', { text: ')', mode: 'after' })
-            .trigger('input');
+            .textrange('replace', replacement)
+            .textrange('set', s.start+1, replace_text['img_description'].length );
+
     });
 
     $('.md-button-img').click(function() {
-        s = $('textarea.md-preview-source').selection();
-        console.log('selection = ' + s);
+        s = $('textarea.md-preview-source').textrange();
 
-        if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['img'] });
+        // console.log('selection = ' + JSON.stringify(s));
+        if (s.length == 0) s.text = replace_text['url'];
 
+        replacement = '![' + replace_text['img_description'] + '](' + s.text + ')';
         $('textarea.md-preview-source')
-            .selection('insert', { text: '!['+replace_text['img_description']+'(', mode: 'before' })
-            .selection('insert', { text: ')', mode: 'after' })
-            .trigger('input');
+            .textrange('replace', replacement)
+            .textrange('set', s.start+2, replace_text['img_description'].length );
     });
 
     form_html = [
