@@ -3,7 +3,9 @@ var files;
 
 
 $(window).load(function () {
-    $('#md-button-bold').click(function() {
+    $('.md-button-bold').click(function() {
+        alert('bolding ' + JSON.stringify(this));
+
         s = $('textarea.md-preview-source').selection();
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['bold'] });
 
@@ -13,7 +15,7 @@ $(window).load(function () {
             .trigger('input');
     });
 
-    $('#md-button-italic').click(function() {
+    $('.md-button-italic').click(function() {
         s = $('textarea.md-preview-source').selection();
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['italic'] });
 
@@ -23,7 +25,7 @@ $(window).load(function () {
             .trigger('input');
     });
 
-    $('#md-button-blockquote').click(function() {
+    $('.md-button-blockquote').click(function() {
         s = $('textarea.md-preview-source').selection();
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['quote'] });
 
@@ -32,7 +34,7 @@ $(window).load(function () {
             .trigger('input');
     });
 
-    $('#md-button-url').click(function() {
+    $('.md-button-url').click(function() {
         s = $('textarea.md-preview-source').selection();
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['url'] });
 
@@ -42,7 +44,7 @@ $(window).load(function () {
             .trigger('input');
     });
 
-    $('#md-button-img').click(function() {
+    $('.md-button-img').click(function() {
         s = $('textarea.md-preview-source').selection();
         if (s == '') $('textarea.md-preview-source').selection('replace', { text: replace_text['img'] });
 
@@ -78,7 +80,7 @@ $(window).load(function () {
       console.log(files);
     }
 
-    $('#md-button-upload').click(function() {
+    $('.md-button-upload').click(function() {
         $('#md-editor-upload-form').show();
         $('#md-editor-upload-cancel').click(function () {
             $('#md-editor-upload-form').hide();

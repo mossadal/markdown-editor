@@ -34,13 +34,13 @@ class qa_markdown_editor
 		$help_url = qa_path('markdown-help');
 
 		$html = '<div id="md-button-bar-'.$fieldname.'" class="md-button-bar">'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_bold').'" class="md-button"><i class="fa fa-bold" id="md-button-bold"></i></span>'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_italic').'" class="md-button"><i class="fa fa-italic" id="md-button-italic"></i></span>'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_url').'" class="md-button"><i class="fa fa-link" id="md-button-url"></i></span>'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_image').'" class="md-button"><i class="fa fa-image" id="md-button-img"></i></span>'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_quote').'" class="md-button"><i class="fa fa-quote-right" id="md-button-blockquote"></i></span>'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_upload').'" class="md-button"><i class="fa fa-upload" id="md-button-upload"></i></span>'. "\n";
-		$html .= '<span title="'.qa_lang_html('markdown/button_help').'" class="md-button"><a href="'.$help_url.'" target="_blank"><i class="fa fa-question" id="md-button-help"></i></a></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_bold').'" class="md-button md-button-bold"><i class="fa fa-bold"></i></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_italic').'" class="md-button md-button-italic"><i class="fa fa-italic"></i></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_url').'" class="md-button md-button-url"><i class="fa fa-link"></i></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_image').'" class="md-button md-button-img"><i class="fa fa-image"></i></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_quote').'" class="md-button md-button-blockquote"><i class="fa fa-quote-right"></i></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_upload').'" class="md-button md-button-upload"><i class="fa fa-upload"></i></span>'. "\n";
+		$html .= '<span title="'.qa_lang_html('markdown/button_help').'" class="md-button md-button-help"><a href="'.$help_url.'" target="_blank"><i class="fa fa-question" id="md-button-help"></i></a></span>'. "\n";
 		$html .= '</div>' . "\n";
 		$html .= '</div>'. "\n";
 		$html .= '<textarea name="'.$fieldname.'" id="wmd-input-'.$fieldname.'" class="md-preview-source" >'.$content.'</textarea>' . "\n";
