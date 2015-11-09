@@ -6,7 +6,7 @@
     padding: 5px 0 0 2px;
 }
 
-.md-input, .md-preview-source, .md-preview {
+.md-input, .md-preview-source {
     /* 604 */
     width: 100%;
     height: 250px;
@@ -16,9 +16,11 @@
 }
 .md-preview {
     width: 97%;
+    min-height: 250px;
     margin: 0 -24px 10px 0px;
     padding: 8px;
     border: 2px dashed #ccc;
+    overflow: scroll;
 }
 
 .qa-q-view-content pre,
