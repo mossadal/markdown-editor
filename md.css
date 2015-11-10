@@ -69,6 +69,10 @@ pre code {
     border: 1px solid Silver;
 }
 
+.md-button > i {
+    margin-top: 3px;
+}
+
 
 .md-spacer1 {
     left: 50px;
