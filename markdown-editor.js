@@ -7,8 +7,6 @@ $(window).load(function () {
         var textarea = $(this).parent().nextAll('.md-preview-source').first();
         s = textarea.textrange();
 
-        console.log('textarea content = ' + $('textarea.md-preview-source').val());
-        console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['bold'];
 
         replacement = '**' + s.text + '**';
@@ -23,7 +21,6 @@ $(window).load(function () {
         var textarea = $(this).parent().nextAll('.md-preview-source').first();
         s = textarea.textrange();
 
-        console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['italic'];
 
         replacement = '*' + s.text + '*';
@@ -36,7 +33,6 @@ $(window).load(function () {
         var textarea = $(this).parent().nextAll('.md-preview-source').first();
         s = textarea.textrange();
 
-        console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['quote'];
 
         replacement = '\n> ' + s.text;
@@ -49,7 +45,6 @@ $(window).load(function () {
         var textarea = $(this).parent().nextAll('.md-preview-source').first();
         s = textarea.textrange();
 
-        console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['url'];
 
         replacement = '[' + replace_text['img_description'] + '](' + s.text + ')';
@@ -63,7 +58,6 @@ $(window).load(function () {
         var textarea = $(this).parent().nextAll('.md-preview-source').first();
         s = textarea.textrange();
 
-        console.log('selection = ' + JSON.stringify(s));
         if (s.length == 0) s.text = replace_text['url'];
 
         replacement = '![' + replace_text['img_description'] + '](' + s.text + ')';
@@ -95,25 +89,26 @@ $(window).load(function () {
     function prepareUpload(event)
     {
       files = event.target.files;
-      console.log(files);
     }
 
     $('.md-button-upload').click(function() {
+        var textarea = $(this).parent().nextAll('.md-preview-source').first();
+
         $('#md-editor-upload-form').show();
         $('#md-editor-upload-cancel').click(function () {
             $('#md-editor-upload-form').hide();
         });
         $('#md-editor-upload-form').submit(function (event) {
+
+            var s = textarea.textrange();
+
             event.stopPropagation();
             event.preventDefault();
 
             var data = new FormData();
             $.each(files, function(key, value) {
                 data.append(key, value);
-                // console.log('Adding ' + key + ':' +  value);
             })
-
-            // console.log('data:'+JSON.stringify(data));
 
             $.ajax({
                 url: local_upload_url,
@@ -126,12 +121,17 @@ $(window).load(function () {
                 success: function(data, textStatus, jqXHR)
                 {
                     $('#md-editor-upload-form').hide();
-                    console.log(JSON.stringify(data));
-                    $('textarea.md-preview-source')
-                        .selection('insert', { text: '![', mode: 'before' })
-                        .selection('insert', { text: ']('+data.url+')\n', mode: 'after' })
-                        .selection('replace', { text: replace_text['img_description'] })
-                        .trigger('input');
+
+                    if (data.url === null) {
+                        alert(data.message);
+                    } else {
+                        if (s.length == 0) s.text = replace_text['img_description'];
+
+                        replacement = '![' + s.text + '](' + data.url + ')';
+                        textarea.textrange('replace', replacement)
+                                .textrange('set', s.start+2, s.text.length )
+                                .trigger('input');
+                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {

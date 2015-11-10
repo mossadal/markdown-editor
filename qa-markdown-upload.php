@@ -39,7 +39,7 @@ class qa_markdown_upload
             //if (!qa_opt('md_upload_images'))
             //    $message = qa_lang('users/no_permission');
 
-            require_once QA_INCLUDE_DIR.'app/upload.php';
+            require_once QA_INCLUDE_DIR.'qa-app-upload.php';
 
             $upload = qa_upload_file_one(
                 null,    //qa_opt('wysiwyg_editor_upload_max_size'),
