@@ -72,6 +72,9 @@ pre code {
 .md-button > i {
     margin-top: 3px;
 }
+.md-button > a {
+    margin-top: 3px;
+}
 
 
 .md-spacer1 {
