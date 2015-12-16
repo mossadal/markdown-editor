@@ -38,6 +38,6 @@ class qa_markdown_ajax
 
         $sane_html = qa_sanitize_html($html, @$options['linksnewwindow']);
 
-        echo json_encode(array('html' => $sane_html));
+        echo json_encode(array('html' => $html), JSON_HEX_QUOT | JSON_HEX_TAG);
     }
 }

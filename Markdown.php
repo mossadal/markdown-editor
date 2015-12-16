@@ -86,14 +86,13 @@ class Markdown {
                 $delimiter = self::getDelimiter($avoid);
 
                 $search = $delimiter . preg_quote($rule['start_markdown']) . '(.*?)' . preg_quote($rule['close_markdown']) . $delimiter . 's';
-                $replace ="";
 
                 $text = preg_replace_callback(
                     $search,
                     function($matches) use($rule) {
                         $key = uniqid('xmd').count(self::$dictionary);
-                        // Log::info('New key : '.$key);
-                        self::$dictionary[$key] = $rule['start_tag'] . $matches[1] . $rule['close_tag'];
+                        $replacement = $rule['start_tag'] . $matches[1] . $rule['close_tag'];
+                        self::$dictionary[$key] = $replacement;
                         return $key;
                     },
                     $text
@@ -165,7 +164,7 @@ class Markdown {
 
     public static function text($text)
     {
-        $text = self::preMarkdownHook($text);
+        $text = self::preMarkdownHook(htmlspecialchars($text));
         $markup = self::$parser->text($text);
         $markup = self::postMarkdownHook($markup);
 
@@ -174,7 +173,7 @@ class Markdown {
 
     public static function line($text)
     {
-        $text = self::preMarkdownHook($text);
+        $text = self::preMarkdownHook(htmlspecialchars($text));
         $markup = self::$parser->line($text);
         $markup = self::postMarkdownHook($markup);
 
