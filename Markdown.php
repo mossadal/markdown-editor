@@ -91,7 +91,7 @@ class Markdown {
                     $search,
                     function($matches) use($rule) {
                         $key = uniqid('xmd').count(self::$dictionary);
-                        $replacement = $rule['start_tag'] . $matches[1] . $rule['close_tag'];
+                        $replacement = $rule['start_tag'] . htmlspecialchars($matches[1]) . $rule['close_tag'];
                         self::$dictionary[$key] = $replacement;
                         return $key;
                     },
@@ -164,7 +164,7 @@ class Markdown {
 
     public static function text($text)
     {
-        $text = self::preMarkdownHook(htmlspecialchars($text));
+        $text = self::preMarkdownHook($text);
         $markup = self::$parser->text($text);
         $markup = self::postMarkdownHook($markup);
 
@@ -173,7 +173,7 @@ class Markdown {
 
     public static function line($text)
     {
-        $text = self::preMarkdownHook(htmlspecialchars($text));
+        $text = self::preMarkdownHook($text);
         $markup = self::$parser->line($text);
         $markup = self::postMarkdownHook($markup);
 
